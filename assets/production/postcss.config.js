@@ -3,9 +3,6 @@ module.exports = {
         'postcss-uncss': {
             html: [
                 'layouts/**/*.html'
-            ],
-            ignore: [
-                "/^#js/"
             ]
         },
         'autoprefixer': {

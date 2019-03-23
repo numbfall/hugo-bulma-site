@@ -18,9 +18,10 @@
 {{ partial "icons" . }}
 
 {{ if .Site.IsServer }}
-    {{ $style := resources.Get "bulma.sass" | toCSS (dict "targetPath" "css/styles.css" "outputStyle" "compressed" "enableSourceMap" true) | postCSS (dict "config" "assets/postcss.development.config.js" "noMap" false) | minify | fingerprint }}
-    <link rel="stylesheet" href="{{ $style.Permalink }}">
+    {{ .Scratch.Set "config" "assets/development"}}
 {{ else }}
-    {{ $style := resources.Get "bulma.sass" | toCSS (dict "targetPath" "css/styles.css" "outputStyle" "compressed" "enableSourceMap" false) | postCSS (dict "config" "assets/postcss.production.config.js" "noMap" true) | minify | fingerprint }}
-    <link rel="stylesheet" href="{{ $style.Permalink }}">
+    {{ .Scratch.Set "config" "assets/production"}}
 {{ end }}
+
+{{ $style := resources.Get "bulma.sass" | toCSS (dict "targetPath" "css/styles.css" "outputStyle" "compressed" "enableSourceMap" false) | postCSS (dict "config" ( .Scratch.Get "config" ) "noMap" true) | minify }}
+<link rel="stylesheet" href="{{ $style.Permalink }}">
