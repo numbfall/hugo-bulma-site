@@ -1,0 +1,27 @@
+<form name="message-form" action="/thanks" netlify-honeypot="bot-field" method="POST" netlify>
+    <div class="field is-invisible">
+        <label class="label is-small">Don’t fill this out if you're human:</label>
+        <div class="control">
+            <input class="input is-small" type="text" name="bot-field">
+        </div>
+    </div>
+    <div class="field">
+        <label class="label is-medium" for="name">Name</label>
+        <div class="control">
+            <input class="input is-medium" type="text" placeholder="Text input" name="name" required>
+        </div>
+    </div>
+    <div class="field">
+        <label class="label is-medium" for="email">Email</label>
+        <div class="control">
+            <input class="input is-medium" type="email" placeholder="Email input" name="email" required>
+        </div>
+    </div>
+    <div class="field">
+        <label class="label is-medium" for="message">Message</label>
+        <div class="control">
+            <textarea class="textarea is-medium" placeholder="Textarea" name="message" required></textarea>
+        </div>
+    </div>
+    <button type="submit" class="button is-medium is-danger">Submit</button>
+</form>

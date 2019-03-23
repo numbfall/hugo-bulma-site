@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+{{ partial "head" . }}
+
+<body>
+    {{ if not (eq .Kind "404") }}
+    <header>
+        {{ partial "header" . }}
+    </header>
+    {{ end }}
+
+    {{ block "main" . }}
+    {{ end }}
+    
+    {{ if not (eq .Kind "404") }}
+    <footer>
+        {{ partial "footer" . }}
+    </footer>
+    {{ partial "search-gallery" . }}
+    {{ end }}
+</body>
+
+{{ $js := resources.Get "main.js" }}
+<script type="text/javascript" src="{{ $js.Permalink }}"></script>
+
+</html>

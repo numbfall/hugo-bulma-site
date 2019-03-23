@@ -1,0 +1,22 @@
+<section class="hero is-medium is-warning">
+    <div class="hero-body">
+        <div class="container">
+            <div class="title-wrapper has-text-centered">
+                <h1 class="title">What our clients say</h1>
+                <h2 class="subtitle"></h2>
+                <p>
+                        <br><br>
+                    </p>
+            </div>
+            <div class="content-wrapper">
+                <div class="columns is-vcentered is-centered">
+                    {{ range first 3 (where .Data.Pages "Type" "testimonials") }}
+                    <div class="column is-3">
+                        {{ .Render "card" }}
+                    </div>
+                    {{ end }}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

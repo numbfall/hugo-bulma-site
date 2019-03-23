@@ -1,0 +1,26 @@
+<meta charset="utf-8">
+
+<title>
+    {{ .Title }}
+</title>
+
+{{ if isset .Params "description" }}
+<meta name="description" content="{{ .Params.description }}">
+{{ else }}
+<meta name="description" content="{{ .Site.Params.description }}">
+{{ end }}
+
+<meta name="author" content="{{ .Site.Params.author }}">
+<meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1">
+
+<link rel="canonical" href="{{ .Permalink | absLangURL }}">
+
+{{ partial "icons" . }}
+
+{{ if .Site.IsServer }}
+    {{ $style := resources.Get "bulma.sass" | toCSS (dict "targetPath" "css/styles.css" "outputStyle" "compressed" "enableSourceMap" true) | postCSS (dict "config" "assets/postcss.development.config.js" "noMap" false) | minify | fingerprint }}
+    <link rel="stylesheet" href="{{ $style.Permalink }}">
+{{ else }}
+    {{ $style := resources.Get "bulma.sass" | toCSS (dict "targetPath" "css/styles.css" "outputStyle" "compressed" "enableSourceMap" false) | postCSS (dict "config" "assets/postcss.production.config.js" "noMap" true) | minify | fingerprint }}
+    <link rel="stylesheet" href="{{ $style.Permalink }}">
+{{ end }}

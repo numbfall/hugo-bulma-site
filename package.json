@@ -1,0 +1,21 @@
+{
+  "name": "the-renovators",
+  "version": "0.1.0",
+  "description": "home and commercial renovation contractors",
+  "keywords": [
+    "home improvement",
+    "builders",
+    "renovators",
+    "workers"
+  ],
+  "main": "index.html",
+  "author": "numbfall",
+  "license": "MIT",
+  "devDependencies": {
+    "autoprefixer": "^9.5.0",
+    "postcss-cli": "^6.1.2",
+    "postcss-uncss": "^0.16.1",
+    "uncss": "^0.16.2"
+  },
+  "dependencies": {}
+}
