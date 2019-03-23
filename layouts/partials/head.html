@@ -15,5 +15,11 @@
 
 <link rel="canonical" href="{{ .Permalink | absLangURL }}">
 
-{{ $style := resources.Get "bulma.sass" | toCSS (dict "targetPath" "css/styles.css" "outputStyle" "compressed" "enableSourceMap" false) | postCSS (dict "config" "assets" "noMap" true) | minify }}
+{{ if .Site.IsServer }}
+    {{ .Scratch.Set "config" "assets/development" }}
+{{ else }}
+    {{ .Scratch.Set "config" "assets/production" }}
+{{ end }}
+
+{{ $style := resources.Get "bulma.sass" | toCSS (dict "targetPath" "css/styles.css" "outputStyle" "compressed" "enableSourceMap" false) | postCSS (dict "config" ( .Scratch.Get "config" ) "noMap" true) | minify }}
 <link rel="stylesheet" href="{{ $style.Permalink }}">
