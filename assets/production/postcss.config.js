@@ -4,7 +4,7 @@ module.exports = {
     plugins: [
         purgecss({
             content: [
-                'public/**/*.html'
+                'layouts/**/*.html'
             ]
         }),
         autoprefixer({
