@@ -21,6 +21,6 @@
 </body>
 
 {{ $js := resources.Get "main.js" }}
-<script type="text/javascript" src="{{ $js.Permalink }}"></script>
+<script type="text/javascript" src="{{ $js.Permalink | relURL }}"></script>
 
 </html>

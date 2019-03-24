@@ -24,4 +24,4 @@
 {{ end }}
 
 {{ $style := resources.Get "styles.sass" | toCSS (dict "targetPath" "css/styles.css" "outputStyle" "compressed" "enableSourceMap" false) | postCSS (dict "config" ( .Scratch.Get "config" ) "noMap" true) | minify }}
-<link rel="stylesheet" href="{{ $style.Permalink }}">
+<link rel="stylesheet" href="{{ $style.Permalink | relURL }}">
