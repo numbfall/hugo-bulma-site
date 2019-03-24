@@ -1,3 +1,10 @@
-baseURL = "/"
+baseURL = "https://the-renovators.netlify.com"
 languageCode = "en-us"
 title = "The Renovators"
+enableEmoji = true
+enableRobotsTXT = true
+
+[sitemap]
+  changefreq = "monthly"
+  filename = "sitemap.xml"
+  priority = 0.5
