@@ -13,6 +13,7 @@
   "license": "MIT",
   "devDependencies": {
     "autoprefixer": "^9.5.0",
+    "bulma": "^0.7.4",
     "postcss-cli": "^6.1.2",
     "postcss-purgecss": "^1.0.0"
   }
