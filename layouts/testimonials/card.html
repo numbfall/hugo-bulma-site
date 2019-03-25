@@ -1,6 +1,10 @@
 <div class="card">
     <div class="card-content">
-        <p class="is-size-4 has-text-weight-bold">"{{ .Title }}"</p>
+        <p class="is-size-4 has-text-weight-bold">
+            <span class="title">"</span>
+            {{ .Title }}
+            <span class="title">"</span>
+        </p>
         <p class="is-size-6">{{ .Params.author }}</p>
     </div>
 </div>

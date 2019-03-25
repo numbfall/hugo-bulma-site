@@ -9,9 +9,16 @@
             </p>
         </div>
         <div class="content-wrapper">
-            <div class="columns is-vcentered is-centered">
+            <div class="columns is-centered">
                 {{ range first 4 (where .Data.Pages "Type" "services") }}
-                <div class="column is-3">
+                <div class="column">
+                    {{ .Render "li" }}
+                </div>
+                {{ end }}
+            </div>
+            <div class="columns is-centered is-hidden-mobile">
+                {{ range first 4 (after 4 (where .Data.Pages "Type" "services")) }}
+                <div class="column">
                     {{ .Render "li" }}
                 </div>
                 {{ end }}
@@ -24,8 +31,10 @@
         </div>
         <div class="image-wrapper">
             <div class="columns is-centered">
-                <div class="column is-7">
-                    <img class="my-landscaping-image" src="img/landscaping.svg">
+                <div class="column is-8">
+                    <figure class="image">
+                        <img class="my-landscaping-image" src="img/landscaping.svg">
+                    </figure>
                 </div>
             </div>
         </div>
