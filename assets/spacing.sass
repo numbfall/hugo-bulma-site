@@ -1,0 +1,26 @@
+$marginKey: 'has-margin'
+$paddingKey: 'has-padding'
+$separator: '-'
+$sizes: (('1', $size-1),('2', $size-2),('3', $size-3),('4', $size-4),('5', $size-5),('6', $size-6),('7', $size-7))
+$positions: (('top', 'top'),('right', 'right'),('bottom', 'bottom'),('left', 'left'))
+
+@function sizeValue($key, $value)
+  @return if($key == 'none', 0, $value)
+
+@each $size in $sizes
+  $sizeKey: nth($size, 1);
+  $sizeValue: nth($size, 2);
+  .#{$marginKey}#{$separator}#{$sizeKey}
+      margin: sizeValue($sizeKey, $sizeValue)
+  .#{$paddingKey}#{$separator}#{$sizeKey}
+      padding: sizeValue($sizeKey, $sizeValue)
+
+  @each $position in $positions
+      $posKey: nth($position, 1);
+      $posValue: nth($position, 2);
+      .#{$marginKey}#{$separator}#{$posKey}#{$separator}#{$sizeKey}
+          margin-#{$posValue}: sizeValue($sizeKey, $sizeValue)
+      .#{$paddingKey}#{$separator}#{$posKey}#{$separator}#{$sizeKey}
+          padding-#{$posValue}: sizeValue($sizeKey, $sizeValue)
+        
+    
