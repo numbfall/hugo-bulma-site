@@ -9,7 +9,7 @@
                     </p>
             </div>
             <div class="content-wrapper">
-                <div class="columns is-vcentered is-centered">
+                <div class="columns is-centered">
                     {{ range first 3 (where .Data.Pages "Type" "testimonials") }}
                     <div class="column is-3">
                         {{ .Render "card" }}

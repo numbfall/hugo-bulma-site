@@ -1,4 +1,5 @@
-<article class="notification is-white">
-    <p class="is-size-4 has-text-weight-bold"><a class="" href="{{ .Permalink }}">{{ .Title }}</a></p>
-    <p class="is-size-6">{{ .Description }}</p>
+<article class="notification is-white has-text-centered">
+    <figure><img src="{{ .Params.icon }}"></figure>
+    <p class="is-size-5 has-text-weight-bold"><a class="" href="{{ .Permalink }}">{{ .Title }}</a></p>
+    <p class="has-text-left">{{ .Description }}</p>
 </article>
