@@ -1,14 +1,15 @@
+$spaces: 1rem 2rem 3rem 6rem 9rem
 $positions: top right bottom left
   
 =margin-size($target:'')
-  @each $size in $sizes
-    $i: index($sizes, $size)
+  @each $space in $spaces
+    $i: index($spaces, $space)
     .has-margin-#{$i}#{if($target == '', '', '-' + $target)}
-      margin: $size
+      margin: $space
 
     @each $position in $positions
       .has-margin-#{$position}-#{$i}#{if($target == '', '', '-' + $target)}
-        margin-#{$position}: $size
+        margin-#{$position}: $space
 
 +margin-size()
 
@@ -31,14 +32,14 @@ $positions: top right bottom left
   +margin-size('fullhd')
 
 =padding-size($target:'')
-  @each $size in $sizes
-    $i: index($sizes, $size)
+  @each $space in $spaces
+    $i: index($spaces, $space)
     .has-padding-#{$i}#{if($target == '', '', '-' + $target)}
-      padding: $size
+      padding: $space
 
     @each $position in $positions
       .has-padding-#{$position}-#{$i}#{if($target == '', '', '-' + $target)}
-        padding-#{$position}: $size
+        padding-#{$position}: $space
 
 +padding-size()
 
