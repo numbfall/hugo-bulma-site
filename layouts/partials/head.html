@@ -18,10 +18,10 @@
 {{ partial "icons" . }}
 
 {{ if .Site.IsServer }}
-    {{ .Scratch.Set "config" "assets/development" }}
+    {{ .Scratch.Set "config" "assets/configs/development" }}
 {{ else }}
-    {{ .Scratch.Set "config" "assets/production" }}
+    {{ .Scratch.Set "config" "assets/configs/production" }}
 {{ end }}
 
-{{ $style := resources.Get "styles.sass" | toCSS (dict "targetPath" "css/styles.css" "outputStyle" "compressed" "enableSourceMap" false) | postCSS (dict "config" ( .Scratch.Get "config" ) "noMap" true) | minify }}
+{{ $style := resources.Get "styles.sass" | toCSS (dict "targetPath" "css/styles.css" "outputStyle" "compressed" "enableSourceMap" false) | postCSS (dict "config" (.Scratch.Get "config") "noMap" true) | minify }}
 <link rel="stylesheet" href="{{ $style.Permalink | relURL }}">

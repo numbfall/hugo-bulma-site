@@ -1,0 +1,78 @@
+{{ define "main" }}
+<div class="section is-medium has-background-dark">
+    <div class="container">
+        <div class="columns is-centered">
+            <div class="column has-text-centered">
+                <div class="title has-text-light has-padding-bottom-2">What work do you want done?</div>
+                <div class="dropdown is-hoverable">
+                    <div class="dropdown-trigger field has-addons">
+                    <div class="control is-expanded">
+                        <input id="mySearchInput" class="input is-medium" aria-haspopup="true"
+                            aria-controls="dropdown-menu" placeholder="Search for something..."
+                            onkeyup="filterFunction()" autocomplete="off">
+                    </div>
+                    <div class="control"><button class="button is-medium is-warning">Start typing</button></div>
+                </div>
+                    <div class="dropdown-menu" id="dropdown-menu" role="menu">
+                        <div id="myDropdownContent" class="dropdown-content">
+                            {{ range (where .Data.Pages "Type" "services") }}
+                            <a class="dropdown-item is-size-5" href="{{ .Permalink }}"
+                                keywords="{{ range .Param `tags` }}{{ . }}, {{ end }}">
+                                {{ .Title }}
+                            </a>
+                            {{ end }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="section">
+    <div class="container">
+        <div class="title-wrapper has-text-centered has-margin-bottom-3">
+            <h1 class="title">List of all services</h1>
+            <h2 class="subtitle">
+            </h2>
+        </div>
+        <div class="columns is-centered">
+            {{ range first 4 (where .Data.Pages "Type" "services") }}
+            <div class="column">
+                {{ .Render "li" }}
+            </div>
+            {{ end }}
+        </div>
+        <div class="columns is-centered">
+            {{ range first 4 (after 4 (where .Data.Pages "Type" "services")) }}
+            <div class="column">
+                {{ .Render "li" }}
+            </div>
+            {{ end }}
+        </div>
+    </div>
+</div>
+
+
+{{ partial "main-contact" . }}
+
+<script type="text/javascript">
+
+    function filterFunction() {
+        var input, filter, a, b, i;
+        input = document.getElementById("mySearchInput");
+        filter = input.value.toUpperCase();
+        div = document.getElementById("myDropdownContent");
+        a = div.getElementsByTagName("a");
+        b = document.getElementById("noMatchFound");
+        for (i = 0; i < a.length; i++) {
+            txtValue = a[i].getAttribute('keywords');
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                a[i].style.display = "";
+            } else {
+                a[i].style.display = "none";
+            }
+        }
+    } 
+</script>
+{{ end }}
