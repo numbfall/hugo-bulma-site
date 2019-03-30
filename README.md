@@ -1,0 +1,1 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/bf03095c-be5a-4461-9015-f34c961d749d/deploy-status)](https://app.netlify.com/sites/the-renovators/deploys)
