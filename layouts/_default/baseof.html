@@ -16,9 +16,13 @@
     <footer>
         {{ partial "footer" . }}
     </footer>
-    {{ partial "search-gallery" . }}
     {{ end }}
 </body>
+
+{{ if not (or .IsHome (eq .Kind "404"))  }}
+    {{ partial "structured-breadcrumbs" . }}
+    {{ partial "structured-search-gallery" . }}
+{{ end }}
 
 <script type="text/javascript">
     document.addEventListener('DOMContentLoaded', () => {

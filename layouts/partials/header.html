@@ -13,13 +13,23 @@
 
   <div id="navbarBasic" class="navbar-menu">
     <div class="navbar-start">
-      <a class="navbar-item" href="/services">
-        Services
-      </a>
 
-      <a class="navbar-item" href="/testimonials">
-        Testimonials
-      </a>
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          Services
+        </a>
+
+        <div class="navbar-dropdown is-boxed">
+          {{ range first 4 (where .Site.Pages "Type" "services") }}
+          <a class="navbar-item" href="{{ .Permalink }}">{{ .Title }}</a>
+          {{ end }}
+
+          <hr class="navbar-divider">
+          <a class="navbar-item" href="/services">
+            See all
+          </a>
+        </div>
+      </div>
 
       <div class="navbar-item has-dropdown is-hoverable">
         <a class="navbar-link">
@@ -35,6 +45,11 @@
           </a>
         </div>
       </div>
+
+      <a class="navbar-item" href="/testimonials">
+        Testimonials
+      </a>
+
     </div>
 
     <div class="navbar-end">
