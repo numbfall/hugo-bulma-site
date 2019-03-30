@@ -3,6 +3,7 @@ languageCode = "en-us"
 title = "The Renovators"
 enableEmoji = true
 enableRobotsTXT = true
+disableKinds = ["taxonomy", "taxonomyTerm"]
 
 [sitemap]
   changefreq = "monthly"
