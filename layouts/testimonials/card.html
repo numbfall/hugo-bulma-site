@@ -2,7 +2,7 @@
     <div class="card-content">
         <p class="is-size-4 has-text-weight-bold">
             <span class="title">"</span>
-            {{ .Title }}
+            {{ .Title | markdownify}}
             <span class="title">"</span>
         </p>
         <p class="is-size-6 has-margin-top-1">{{ .Params.author }}</p>

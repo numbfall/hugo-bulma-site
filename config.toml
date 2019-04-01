@@ -1,11 +1,6 @@
-baseURL = "https://the-renovators.netlify.com"
+baseURL = "https://ourrenovators.netlify.com"
 languageCode = "en-us"
-title = "The Renovators"
+title = "Our Renovators"
 enableEmoji = true
 enableRobotsTXT = true
-disableKinds = ["taxonomy", "taxonomyTerm"]
-
-[sitemap]
-  changefreq = "monthly"
-  filename = "sitemap.xml"
-  priority = 0.5
+disableKinds = ["taxonomy", "taxonomyTerm", "robotsTXT", "sitemap", "RSS"]
