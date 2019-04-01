@@ -1,4 +1,4 @@
-<nav class="navbar is-transparent has-padding-1-desktop" role="navigation" aria-label="main navigation">
+<nav class="navbar is-transparent has-padding-1-desktop has-text-bold" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
     <a class="navbar-item" href="{{ .Site.BaseURL }}">
       <img src="/img/logo.svg">
@@ -20,9 +20,18 @@
         </a>
 
         <div class="navbar-dropdown is-boxed">
-          {{ range first 4 (where .Site.Pages "Type" "services") }}
-          <a class="navbar-item" href="{{ .Permalink }}">{{ .Title }}</a>
-          {{ end }}
+          <div class="columns is-hidden-touch">
+            <div class="column my-first-column">
+              {{ range first 4 (where .Site.Pages "Type" "services") }}
+              <a class="navbar-item" href="{{ .Permalink }}">{{ .Title }}</a>
+              {{ end }}
+            </div>
+            <div class="column">
+              {{ range first 4 (after 4 (where .Site.Pages "Type" "services")) }}
+              <a class="navbar-item" href="{{ .Permalink }}">{{ .Title }}</a>
+              {{ end }}
+            </div>
+          </div>
 
           <hr class="navbar-divider">
           <a class="navbar-item" href="/services">
