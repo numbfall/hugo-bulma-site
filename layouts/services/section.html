@@ -16,7 +16,7 @@
                     <div class="dropdown-menu" id="dropdown-menu" role="menu">
                         <div id="myDropdownContent" class="dropdown-content">
                             {{ range (where .Data.Pages "Type" "services") }}
-                            <a class="dropdown-item is-size-5" href="{{ .Permalink }}"
+                            <a class="dropdown-item is-size-6" href="{{ .Permalink }}"
                                 keywords="{{ range .Param `tags` }}{{ . }}, {{ end }}">
                                 {{ .Title }}
                             </a>
