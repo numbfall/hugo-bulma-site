@@ -1,10 +1,9 @@
 window.filterFunction = () => {
-    var input, filter, a, b, i;
+    var input, filter, a, i;
     input = document.getElementById("mySearchInput");
     filter = input.value.toUpperCase();
     div = document.getElementById("myDropdownContent");
     a = div.getElementsByTagName("a");
-    b = document.getElementById("noMatchFound");
     for (i = 0; i < a.length; i++) {
         txtValue = a[i].getAttribute('keywords');
         if (txtValue.toUpperCase().indexOf(filter) > -1) {
