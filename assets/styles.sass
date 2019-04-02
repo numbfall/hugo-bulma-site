@@ -2,6 +2,7 @@
 
 $family-secondary: 'Abril Fatface', cursive
 $navbar-dropdown-arrow: hsl(0, 0%, 29%)
+$navbar-height: 3.5rem
 
 @import "../node_modules/bulma/bulma"
 @import "spacing"
@@ -16,11 +17,11 @@ $navbar-dropdown-arrow: hsl(0, 0%, 29%)
   right: 0
   margin-top: 0.2rem
   margin-right: 0.2rem
-  &.is-open
-    display: unset
-  .dropdown-item
-    font-weight: bold
-    font-size: $size-6
+  +touch
+    &.is-open
+      display: unset
+    .dropdown-item
+      font-weight: $strong-weight
 
 .navbar
   transition: all 0.1s ease-in
@@ -41,7 +42,7 @@ img
 
 img
   &.my-process-line
-    margin: -20px 0 -20px 40px
+    margin: -1rem 3.5rem
   &.my-landscaping-image
     +mobile
       margin-bottom: -70px
