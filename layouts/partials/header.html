@@ -1,78 +1,98 @@
-<nav class="navbar is-transparent has-padding-1-desktop has-text-bold" role="navigation" aria-label="main navigation">
-  <div class="navbar-brand">
-    <a class="navbar-item" href="{{ .Site.BaseURL }}">
-      <img src="/img/logo.svg">
-    </a>
-
-    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasic">
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-    </a>
-  </div>
-
-  <div id="navbarBasic" class="navbar-menu">
-    <div class="navbar-start">
-
-      <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link">
-          Services
-        </a>
-
-        <div class="navbar-dropdown is-boxed">
-          <div class="columns is-hidden-touch">
-            <div class="column my-first-column">
-              {{ range first 4 (where .Site.Pages "Type" "services") }}
-              <a class="navbar-item" href="{{ .Permalink }}">{{ .Title }}</a>
-              {{ end }}
-            </div>
-            <div class="column">
-              {{ range first 4 (after 4 (where .Site.Pages "Type" "services")) }}
-              <a class="navbar-item" href="{{ .Permalink }}">{{ .Title }}</a>
-              {{ end }}
-            </div>
-          </div>
-
-          <hr class="navbar-divider">
-          <a class="navbar-item" href="/services">
-            See all
-          </a>
-        </div>
-      </div>
-
-      <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link">
-          Portfolio
-        </a>
-
-        <div class="navbar-dropdown is-boxed">
-          <a class="navbar-item" href="#">Case studies</a>
-
-          <hr class="navbar-divider">
-          <a class="navbar-item" href="/contact">
-            Get a free consult
-          </a>
-        </div>
-      </div>
-
-      <a class="navbar-item" href="/testimonials">
-        Testimonials
+<nav class="navbar is-transparent is-fixed-top" role="navigation" aria-label="main navigation">
+  <div class="container">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="{{ .Site.BaseURL }}">
+        <img src="/img/logo.svg">
       </a>
 
+      <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarMobile">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
     </div>
 
-    <div class="navbar-end">
-      <div class="navbar-item">
-        <a class="">
-          <img src="https://img.icons8.com/cotton/64/000000/instagram-new.png">
+    <div id="navbarMain" class="navbar-menu">
+      <div class="navbar-start">
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link" href="/services">
+            Services
+          </a>
+
+          <div class="navbar-dropdown is-boxed">
+            <div class="columns is-hidden-touch">
+              <div class="column my-first-column">
+                {{ range first 4 (where .Site.Pages "Type" "services") }}
+                <a class="navbar-item" href="{{ .Permalink }}">{{ .Title }}</a>
+                {{ end }}
+              </div>
+              <div class="column">
+                {{ range first 4 (after 4 (where .Site.Pages "Type" "services")) }}
+                <a class="navbar-item" href="{{ .Permalink }}">{{ .Title }}</a>
+                {{ end }}
+              </div>
+            </div>
+
+            <hr class="navbar-divider">
+            <a class="navbar-item" href="/services">
+              See all
+            </a>
+          </div>
+        </div>
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">
+            Portfolio
+          </a>
+
+          <div class="navbar-dropdown is-boxed">
+            <a class="navbar-item" href="#">Case studies</a>
+
+            <hr class="navbar-divider">
+            <a class="navbar-item" href="/testimonials">
+              Testimonials
+            </a>
+
+          </div>
+        </div>
+
+        <a class="navbar-item" href="/contact">
+          Get a free consult
         </a>
+
       </div>
-      <div class="navbar-item">
-        <a class="">
-          <img src="https://img.icons8.com/cotton/64/000000/facebook.png">
-        </a>
+
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <a class="">
+            <img src="https://img.icons8.com/cotton/64/000000/instagram-new.png">
+          </a>
+        </div>
+        <div class="navbar-item">
+          <a class="">
+            <img src="https://img.icons8.com/cotton/64/000000/facebook.png">
+          </a>
+        </div>
       </div>
     </div>
   </div>
   </div>
 </nav>
+
+<div id="navbarMobile" class="dropdown">
+  <div class="dropdown-content">
+    <a class="dropdown-item" href="/services">Services</a>
+    <a class="dropdown-item">Portfolio</a>
+    <a class="dropdown-item" href="#">Case studies</a>
+    <a class="dropdown-item" href="/testimonials">Testimonials</a>
+    <a class="dropdown-item" href="/contact">Contact</a>
+  <hr class="dropdown-divider">
+      <a class="has-padding-1">
+      <img src="https://img.icons8.com/cotton/64/000000/instagram-new.png" width="32">
+    </a>
+    <a class="has-padding-1">
+      <img src="https://img.icons8.com/cotton/64/000000/facebook.png" width="32">
+    </a>
+  </div>
+</div>
