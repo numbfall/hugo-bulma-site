@@ -24,8 +24,6 @@
     {{ partial "structured-search-gallery" . }}
 {{ end }}
 
-{{ $main := resources.Get "scripts/main.js" }}
-
-<script type="text/javascript" src="{{ $main.Permalink }}"></script>
+{{ partial "scripts-main" }}
 
 </html>

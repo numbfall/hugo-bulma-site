@@ -56,8 +56,6 @@
 
 {{ partial "main-contact" . }}
 
-{{ $filterFunction := resources.Get "scripts/filter-function.js" }}
-
-<script type="text/javascript" src="{{ $filterFunction.Permalink }}"></script>
+{{ partial "scripts-filter" }}
 
 {{ end }}
