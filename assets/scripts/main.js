@@ -1,4 +1,4 @@
-window.addEventListener('DOMContentLoaded', () => {
+window.onload = () => {
 
     // Get all "navbar-burger" elements
     const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
@@ -22,31 +22,30 @@ window.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-});
-
-function addClass(el, className) {
-    if (el.classList)
-        el.classList.add(className);
-    else if (!hasClass(el, className)) el.className += " " + className;
-}
-
-function removeClass(el, className) {
-    if (el.classList)
-        el.classList.remove(className);
-    else if (hasClass(el, className)) {
-        var reg = new RegExp("(\\s|^)" + className + "(\\s|$)");
-        el.className = el.className.replace(reg, " ");
+    function addClass(el, className) {
+        if (el.classList)
+            el.classList.add(className);
+        else if (!hasClass(el, className)) el.className += " " + className;
     }
-}
 
-window.addEventListener('scroll', () => {
-    var currentWindowPos = document.documentElement.scrollTop || document.body.scrollTop,
-        header = document.getElementsByClassName('navbar');
-
-    if (currentWindowPos > 27) {
-        addClass(header[0], "scrolled");
-    } else {
-        removeClass(header[0], "scrolled");
+    function removeClass(el, className) {
+        if (el.classList)
+            el.classList.remove(className);
+        else if (hasClass(el, className)) {
+            var reg = new RegExp("(\\s|^)" + className + "(\\s|$)");
+            el.className = el.className.replace(reg, " ");
+        }
     }
-});
 
+    window.addEventListener('scroll', () => {
+        var currentWindowPos = document.documentElement.scrollTop || document.body.scrollTop,
+            header = document.getElementsByClassName('navbar');
+
+        if (currentWindowPos > 27) {
+            addClass(header[0], "scrolled");
+        } else {
+            removeClass(header[0], "scrolled");
+        }
+    });
+
+}
