@@ -1,5 +1,5 @@
-window.burgerToggle = () => {
-    document.addEventListener('DOMContentLoaded', () => {
+window.onload = () => {
+    // document.addEventListener('DOMContentLoaded', () => {
 
         // Get all "navbar-burger" elements
         const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
@@ -23,8 +23,8 @@ window.burgerToggle = () => {
             });
         }
 
-    });
-}
+    // });
+};
 
 function addClass(el, className) {
     if (el.classList)
@@ -51,6 +51,4 @@ window.onscroll = () => {
         removeClass(header[0], "scrolled");
     }
 };
-
-burgerToggle();
 
