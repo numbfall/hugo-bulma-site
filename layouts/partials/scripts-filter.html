@@ -1,17 +1,24 @@
 <script type="text/javascript">
 window.filterFunction = () => {
-    var input, filter, a, i;
+    var input, filter, div, item, count, warn;
     input = document.getElementById("mySearchInput");
     filter = input.value.toUpperCase();
     div = document.getElementById("myDropdownContent");
-    a = div.getElementsByTagName("a");
-    for (i = 0; i < a.length; i++) {
-        txtValue = a[i].getAttribute('keywords');
-        if (txtValue.toUpperCase().indexOf(filter) > -1) {
-            a[i].style.display = "";
+    warn = document.getElementById("myNotFound");
+    item = Array.prototype.slice.call(div.getElementsByTagName("a"), 0);
+    item.forEach(el => {
+        keywords = el.getAttribute('keywords');
+        if (keywords.toUpperCase().indexOf(filter) > -1) {
+            removeClass(el, "is-hidden");
         } else {
-            a[i].style.display = "none";
+            addClass(el, "is-hidden");
         }
+    });
+    count = Array.prototype.slice.call(div.querySelectorAll("a.is-hidden"), 0);
+    if (count.length == item.length ) {
+        removeClass(warn, "is-hidden");
+    } else { 
+        addClass(warn, "is-hidden");
     }
 }
 </script>

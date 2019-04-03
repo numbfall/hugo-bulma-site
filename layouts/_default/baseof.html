@@ -26,4 +26,8 @@
 
 {{ partial "scripts-main" }}
 
+{{ if eq .Page.Name "Services" }}
+    {{ partial "scripts-filter" }}
+{{ end }}
+
 </html>

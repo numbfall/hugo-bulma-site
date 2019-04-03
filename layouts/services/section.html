@@ -21,6 +21,7 @@
                                 {{ .Title }}
                             </a>
                             {{ end }}
+                            <div id="myNotFound" class="dropdown-item has-text-danger is-hidden">No results found...</div>
                         </div>
                     </div>
                 </div>
@@ -53,9 +54,6 @@
     </div>
 </div>
 
-
 {{ partial "main-contact" . }}
-
-{{ partial "scripts-filter" }}
 
 {{ end }}
