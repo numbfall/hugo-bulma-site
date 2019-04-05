@@ -17,17 +17,31 @@
         {{ partial "footer" . }}
     </footer>
     {{ end }}
+
+    <div id="my-cookie-notification" class="notification box is-hidden">
+        <button class="delete"></button>
+        <div class="columns is-mobile">
+            <div class="column is-narrow">
+                <img src="https://img.icons8.com/cotton/48/000000/cookie.png">
+            </div>
+            <div class="column">
+                This website uses cookies to make the browsing experience better for you. We <strong>do not</strong>
+                collect any
+                personal data or save it on our computers.
+            </div>
+        </div>
+    </div>
 </body>
 
 {{ if not (or .IsHome (eq .Kind "404"))  }}
-    {{ partial "structured-breadcrumbs" . }}
-    {{ partial "structured-search-gallery" . }}
+{{ partial "structured-breadcrumbs" . }}
+{{ partial "structured-search-gallery" . }}
 {{ end }}
 
 {{ partial "scripts-main" }}
 
 {{ if eq .Page.Name "Services" }}
-    {{ partial "scripts-filter" }}
+{{ partial "scripts-filter" }}
 {{ end }}
 
 </html>

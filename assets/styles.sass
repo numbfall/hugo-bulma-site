@@ -23,6 +23,18 @@ $navbar-height: 3.5rem
     .dropdown-item
       font-weight: $strong-weight
 
+#my-cookie-notification
+  position: fixed
+  right: 2rem
+  bottom: 0
+  width: 400px
+  +mobile
+    bottom: -2rem
+    width: 100vw
+    left: 0
+    right: 0
+    border-radius: 0
+  
 .navbar
   transition: all 0.1s ease-in
   &.scrolled

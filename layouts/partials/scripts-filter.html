@@ -1,12 +1,12 @@
 <script type="text/javascript">
-window.filterFunction = () => {
+window.filterFunction = function () {
     var input, filter, div, item, count, warn;
     input = document.getElementById("mySearchInput");
     filter = input.value.toUpperCase();
     div = document.getElementById("myDropdownContent");
     warn = document.getElementById("myNotFound");
     item = Array.prototype.slice.call(div.getElementsByTagName("a"), 0);
-    item.forEach(el => {
+    item.forEach(function (el) {
         keywords = el.getAttribute('keywords');
         if (keywords.toUpperCase().indexOf(filter) > -1) {
             removeClass(el, "is-hidden");
