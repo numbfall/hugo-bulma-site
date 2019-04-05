@@ -24,7 +24,7 @@
             <div class="columns is-hidden-touch">
               <div class="column my-first-column">
                 {{ range first 4 ((where .Site.Pages "Type" "services").ByParam "featured") }}
-                <a class="navbar-item" href="{{ .Permalink }}">{{ .Title }}&NonBreakingSpace;&NonBreakingSpace;{{ if isset .Params "featured" }}<span class="icon is-small"><img src="https://img.icons8.com/dusk/48/000000/star.png"></span>{{ end }}</a>
+                <a class="navbar-item" href="{{ .Permalink }}">{{ .Title }}&NonBreakingSpace;&NonBreakingSpace;{{ if isset .Params "featured" }}<span class="icon"><img src="https://img.icons8.com/cotton/48/000000/filled-star.png"></span>{{ end }}</a>
                 {{ end }}
               </div>
               <div class="column">
