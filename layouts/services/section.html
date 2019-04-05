@@ -37,16 +37,9 @@
             <h2 class="subtitle">
             </h2>
         </div>
-        <div class="columns is-centered">
-            {{ range first 4 (where .Data.Pages "Type" "services") }}
-            <div class="column">
-                {{ .Render "li" }}
-            </div>
-            {{ end }}
-        </div>
-        <div class="columns is-centered">
-            {{ range first 4 (after 4 (where .Data.Pages "Type" "services")) }}
-            <div class="column">
+        <div class="columns is-multiline is-centered">
+            {{ range (where .Data.Pages "Type" "services") }}
+            <div class="column is-4">
                 {{ .Render "li" }}
             </div>
             {{ end }}
