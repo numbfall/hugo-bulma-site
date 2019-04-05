@@ -23,12 +23,12 @@
           <div class="navbar-dropdown is-boxed">
             <div class="columns is-hidden-touch">
               <div class="column my-first-column">
-                {{ range first 4 (where .Site.Pages "Type" "services") }}
-                <a class="navbar-item" href="{{ .Permalink }}">{{ .Title }}</a>
+                {{ range first 4 ((where .Site.Pages "Type" "services").ByParam "featured") }}
+                <a class="navbar-item" href="{{ .Permalink }}">{{ .Title }}&NonBreakingSpace;&NonBreakingSpace;{{ if isset .Params "featured" }}<span class="icon is-small"><img src="https://img.icons8.com/dusk/48/000000/star.png"></span>{{ end }}</a>
                 {{ end }}
               </div>
               <div class="column">
-                {{ range first 4 (after 4 (where .Site.Pages "Type" "services")) }}
+                {{ range first 4 (after 4 ((where .Site.Pages "Type" "services").ByParam "featured")) }}
                 <a class="navbar-item" href="{{ .Permalink }}">{{ .Title }}</a>
                 {{ end }}
               </div>
