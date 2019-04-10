@@ -2,16 +2,21 @@
     {
         "@context": "http://schema.org",
         "@type": "BreadcrumbList",
-            "itemListElement": [{
+            "itemListElement": [            {
                 "@type": "ListItem",
                 "position": 1,
-                "name": "{{ .Section | humanize }}",
-                "item": "{{ .Parent.URL | absURL }}"
+                "name": "Home",
+                "item": "{{ .Site.BaseURL }}"
             },{
                 "@type": "ListItem",
                 "position": 2,
+                "name": "{{ .Section | humanize }}",
+                "item": "{{ .Parent.Permalink }}"
+            },{
+                "@type": "ListItem",
+                "position": 3,
                 "name": "{{ .Title }}",
-                "item": "{{ .URL | absURL }}"
+                "item": "{{ .Permalink }}"
             }]
     }
 </script>

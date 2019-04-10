@@ -2,9 +2,9 @@
     <div class="container">
         <nav class="breadcrumb" aria-label="breadcrumb">
         <ul>
-            <li><a href="{{ .Site.Home.URL }}">Home</a></li>
-            <li><a href="{{ .Parent.URL }}">{{ .Section | humanize }}</a></li>
-            <li class="is-active"><a href="{{ .Page.URL }}" aria-current="page">{{ .Title }}</a></li>
+            <li><a href="{{ .Site.Home.RelPermalink }}">Home</a></li>
+            <li><a href="{{ .Parent.RelPermalink }}">{{ .Section | humanize }}</a></li>
+            <li class="is-active"><a href="{{ .Page.RelPermalink }}" aria-current="page">{{ .Title }}</a></li>
         </ul>
         </nav>
     </div>
